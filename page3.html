@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Infinite Horizontal Scroll</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #111;
+    }
+
+    .viewport {
+      width: 90%;       /* visible window */
+      height: 150px;    /* height of blocks */
+      overflow: hidden; /* hide overflow */
+      border: 2px solid white;
+    }
+
+    .track {
+      display: flex;
+      width: max-content; /* fit content width */
+      animation: scroll 10s linear infinite;
+    }
+
+    .box {
+      width: 150px;
+      height: 150px;
+      flex-shrink: 0; /* don’t shrink */
+    }
+
+    /* 6 colors */
+    .box:nth-child(1) { background: red; }
+    .box:nth-child(2) { background: orange; }
+    .box:nth-child(3) { background: yellow; }
+    .box:nth-child(4) { background: green; }
+    .box:nth-child(5) { background: blue; }
+    .box:nth-child(6) { background: purple; }
+
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+  </style>
+</head>
+<body>
+  <div class="viewport">
+    <div class="track">
+      <!-- first set of 6 -->
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+
+      <!-- repeat same 6 for smooth loop -->
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </div>
+</body>
+</html>
